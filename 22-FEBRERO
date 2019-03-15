@@ -1,0 +1,51 @@
+https://editor.p5js.org/missael115/sketches/e6FdTYvuF
+
+class objeto{
+constructor(){
+ this.b=50;
+  this.x=random (26,375);
+  this.y=random (26,375);
+  this.velx=random(1,5);
+  this.vely=random(1,5);
+  this.R = random(20, 300);
+	this.G = random(20, 300);
+	this.B = random(20, 300);
+  
+}
+  mostrar(){
+  ellipse(this.x, this.y, this.b,this.b);
+    fill(this.R, this.G, this.B);
+  }
+  
+  mover(){
+this.x=this.x+this.velx;
+   this.y=this.y+this.vely; 
+}
+    
+  salir(){
+  if(this.x>375||this.x<25){
+    this.velx=this.velx*-1;
+  }
+    if(this.y>375||this.y<25){
+    this.vely=this.vely*-1;
+  } 
+  }
+
+}
+
+var p=[];
+function setup() {
+  createCanvas(400, 400);
+  for(var i=0; i<100; i++){
+    p[i]=new objeto();
+  }
+}
+
+function draw() {
+  background(220);
+  for(var i=0; i<p.length; i++){
+  p[i].mostrar();
+  p[i].mover();
+  p[i].salir();
+  }
+}
